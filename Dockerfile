@@ -2,16 +2,17 @@ FROM debian:latest
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-MAINTAINER Jeison Sosa <j.sosa@bristol.ac.uk>
+MAINTAINER Emre Bayram <emre.gss@gmail.com>
 
 COPY config.cfg /tmp/icc-config.cfg
 COPY license.lic /tmp/icc-license.lic
 
 RUN apt-get update --fix-missing && \
-    apt-get install -y wget bzip2 ca-certificates curl git cpio build-essential && \
+    apt-get install -y wget nano gcc g++ openssh* bzip2 ca-certificates curl git cpio build-essential && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+#http://registrationcenter-download.intel.com/akdlm/irc_nas/13765/system_studio_2019_ultimate_edition_offline.tar.gz
 RUN cd /tmp && \
   wget -O icc.tgz http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/13003/parallel_studio_xe_2018_update3_composer_edition_for_cpp_online.tgz && \
   tar -xvzf icc.tgz && \

@@ -6,3 +6,4 @@ I'm not sharing the pre-build image since it requires a Intel personal license, 
 1. Download your license file from here https://registrationcenter.intel.com/en/products/
 2. Rename your license to `license.lic` and put it in the same folder along with the `Dockerfile` and  `config.cfg` files.
 3. Build with `docker build -t dkr-intel .`
+4. docker run --name=dkr-intel -d -v ~/myproject:/home/myproject -p 5000:22
